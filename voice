@@ -1,2 +1,55 @@
-git clone https://github.com/your-username/Voice-App-Opener.git
-cd Voice-App-Opener
+echo "<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Voice-Activated App Opener</title>
+</head>
+<body>
+    <h1>Speak to Open Apps</h1>
+    <button onclick='startRecognition()'>Start Listening</button>
+    <script>
+        function startRecognition() {
+            if ('webkitSpeechRecognition' in window) {
+                const recognition = new webkitSpeechRecognition();
+                recognition.lang = 'en-US';
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.onstart = function() {
+                    console.log('Voice recognition started. Try speaking into the microphone.');
+                };
+                recognition.onresult = function(event) {
+                    const speechResult = event.results[0][0].transcript.toLowerCase();
+                    console.log('Speech received: ' + speechResult);
+                    openApp(speechResult);
+                };
+                recognition.onerror = function(event) {
+                    console.error(event.error);
+                };
+                recognition.onend = function() {
+                    console.log('Voice recognition ended.');
+                };
+                recognition.start();
+            } else {
+                console.log('Speech recognition not supported in this browser.');
+            }
+        }
+        function openApp(appName) {
+            switch (appName) {
+                case 'google':
+                    window.open('https://www.google.com');
+                    break;
+                case 'calculator':
+                    alert('Pretend this opens a calculator app.');
+                    break;
+                case 'notes':
+                    alert('Pretend this opens a notes app.');
+                    break;
+                default:
+                    console.log('App not recognized: ' + appName);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>" > index.html
