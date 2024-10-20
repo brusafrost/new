@@ -1,54 +1,34 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
-
-.calculator {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.calculator-screen {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 10px;
-    padding: 0 10px;
-    font-size: 18px;
-    border: none;
-    background-color: #f0f0f0;
-}
-
-.calculator-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.btn {
-    padding: 20px;
-    font-size: 18px;
-    border: none;
-    background: #e0e0e0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn.operator {
-    background: #ff9500;
-    color: #fff;
-}
-
-.btn.equals {
-    grid-column: span 2;
-    background: #007aff;
-    color: #fff;
-}
-
-.btn:active {
-    background: #ccc;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="calculator-screen" disabled />
+        <div class="calculator-buttons">
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn operator">/</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn operator">*</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn operator">-</button>
+            <button class="btn">0</button>
+            <button class="btn">.</button>
+            <button class="btn">C</button>
+            <button class="btn operator">+</button>
+            <button class="btn equals">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
